@@ -1,0 +1,34 @@
+﻿services:
+  inspetorar:
+    image: ${DOCKER_REGISTRY-}inspectorar
+    networks:
+      - internal-network
+    build:
+      context: .
+      dockerfile: InspectorAR/Dockerfile
+    
+    ports:
+      - "5000:5000"
+    
+    environment:
+      ASPNETCORE_URLS: "https://+:5000"
+  
+  database:
+    user: root
+    container_name: Database
+    networks:
+      - internal-network
+    restart: always
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      MSSQL_SA_PASSWORD: "InspectorAR123!@"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ../volumes/mssql_data:/var/opt/mssql/data
+
+networks:
+  internal-network:
+    driver: bridge

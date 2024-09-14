@@ -1,0 +1,6 @@
+@InspetorAR_HostAddress = http://localhost:5107
+
+GET {{InspetorAR_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
