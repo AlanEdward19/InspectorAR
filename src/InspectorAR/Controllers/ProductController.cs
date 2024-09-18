@@ -10,6 +10,8 @@ namespace InspectorAR.Controllers;
 /// <summary>
 /// Product controller.
 /// </summary>
+[ApiController]
+[Route("[controller]")]
 public class ProductController : ControllerBase
 {
     /// <summary>
