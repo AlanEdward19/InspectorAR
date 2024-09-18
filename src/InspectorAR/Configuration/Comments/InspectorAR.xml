@@ -292,6 +292,18 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="T:InspectorAR.Migrations.initial">
+            <inheritdoc />
+        </member>
+        <member name="M:InspectorAR.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InspectorAR.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InspectorAR.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:InspectorAR.Product.AddProduct.AddProductCommand">
             <summary>
             Command to add a product.
