@@ -16,12 +16,12 @@ public class UpdateProductCommand
     /// <summary>
     /// Name of the product.
     /// </summary>
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
     
     /// <summary>
     /// Information of the product.
     /// </summary>
-    public Dictionary<string, object>? Information { get; private set; }
+    public Dictionary<string, object>? Information { get; set; }
     
     /// <summary>
     /// Constructor of the command.
