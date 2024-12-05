@@ -42,4 +42,11 @@ public interface IRepository<T>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Gets all entities.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<List<T>> GetAllAsync(CancellationToken cancellationToken);
 }

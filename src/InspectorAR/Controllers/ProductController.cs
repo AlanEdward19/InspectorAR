@@ -28,7 +28,21 @@ public class ProductController : ControllerBase
     {
         return Ok(await handler.GetProductAsync(id, cancellationToken));
     }
-    
+
+    /// <summary>
+    /// Get all products.
+    /// </summary>
+    /// <param name="handler"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [HttpGet]
+    public async Task<ActionResult<ProductViewModel>> GetAllProducts([FromServices] ProductQueryHandler handler, CancellationToken cancellationToken)
+    {
+        return Ok(await handler.GetAllProductsAsync(cancellationToken));
+    }
+
     /// <summary>
     /// Add a new product.
     /// </summary>

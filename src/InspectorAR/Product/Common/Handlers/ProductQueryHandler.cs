@@ -25,4 +25,22 @@ public class ProductQueryHandler(ILogger<ProductCommandHandler> logger, IReposit
 
         return new (product.Id, product.Name, JsonSerializer.Deserialize<dynamic>(product.Information));
     }
+
+    /// <summary>
+    /// Get all products on database
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public async Task<List<ProductViewModel>> GetAllProductsAsync(CancellationToken cancellationToken)
+    {
+        logger.LogInformation("Getting all products");
+        List<Entities.Product> products = await repository.GetAllAsync(cancellationToken) ?? throw new InvalidOperationException("There is no product in the database.");
+
+        List<ProductViewModel> model = new List<ProductViewModel>();
+
+        products.ForEach(product => model.Add(new(product.Id, product.Name, JsonSerializer.Deserialize<dynamic>(product.Information))));
+
+        return model;
+    }
 }

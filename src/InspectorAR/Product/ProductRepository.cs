@@ -60,4 +60,14 @@ public class ProductRepository(DatabaseDbContext databaseDbContext, IUnitOfWork 
     {
         return await databaseDbContext.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
+
+    /// <summary>
+    /// Gets all products from the database
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    public async Task<List<Entities.Product>> GetAllAsync(CancellationToken cancellationToken)
+    {
+        return await databaseDbContext.Products.ToListAsync(cancellationToken);
+    }
 }
